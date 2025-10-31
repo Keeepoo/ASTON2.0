@@ -1,0 +1,30 @@
+.themeSwitcher {
+  background: none;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeSwitcher:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.light {
+  background-color: #f8f9fa;
+  color: #333;
+  border-color: #dee2e6;
+}
+
+.dark {
+  background-color: #343a40;
+  color: #fff;
+  border-color: #495057;
+}
