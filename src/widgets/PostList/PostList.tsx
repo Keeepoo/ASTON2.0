@@ -1,24 +1,42 @@
-import PostCard from "../../entities/post/ui/PostCard";
+import React, { useMemo, useCallback } from 'react';
+import PostCard from '../../entities/post/ui/PostCard';
 import styles from './PostList.module.css';
+import { filterByLength } from '../../shared/lib/filterByLength';
+import type { Post, User } from '../../features/PostList/model/hooks/usePosts';
 
-type Post = {
-  id: number;
-  title: string;
-  text: string;
-};
-
-type PostListProps = {
+interface PostListProps {
   posts: Post[];
-};
+  users: User[];
+  minTitleLength?: number;
+}
 
-function PostList({ posts }: PostListProps) {
+const PostList: React.FC<PostListProps> = ({ posts, users, minTitleLength = 0 }) => {
+
+  const filteredPosts = useMemo(() => filterByLength(posts, minTitleLength), [posts, minTitleLength]);
+
+  const getAuthor = useCallback((userId: number) => {
+    return users.find(user => user.id === userId);
+  }, [users]);
+
+  const renderPost = useCallback((post: Post) => {
+    const author = getAuthor(post.userId);
+    return (
+      <PostCard
+        key={post.id}
+        id={post.id}
+        title={post.title}
+        text={post.text}
+        comments={post.comments}
+        author={author}
+      />
+    );
+  }, [getAuthor]);
+
   return (
     <div className={styles.postList}>
-      {posts.map(post => (
-        <PostCard key={post.id} title={post.title} text={post.text} />
-      ))}
+      {filteredPosts.map(renderPost)}
     </div>
   );
-}
+};
 
 export default PostList;

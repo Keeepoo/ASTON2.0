@@ -1,0 +1,144 @@
+.todoItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.todoItem:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--text-secondary);
+}
+
+.todoItem.completed {
+  opacity: 0.6;
+  background: var(--bg-secondary);
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.checkbox:hover {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.checkbox svg {
+  width: 10px;
+  height: 10px;
+  color: var(--text-primary);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.todoItem.completed .checkbox {
+  background: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.todoItem.completed .checkbox svg {
+  opacity: 1;
+  color: var(--bg-primary);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.text {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  word-wrap: break-word;
+  transition: all 0.3s ease;
+}
+
+.todoItem.completed .text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.deleteButton {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 0.75rem;
+  opacity: 0;
+}
+
+.todoItem:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  background: #ff4757;
+  color: white;
+  transform: scale(1.1);
+}
+
+.deleteButton svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .todoItem {
+    padding: 0.6rem;
+  }
+  
+  .checkbox {
+    width: 14px;
+    height: 14px;
+    margin-right: 0.6rem;
+  }
+  
+  .checkbox svg {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .text {
+    font-size: 0.9rem;
+  }
+  
+  .deleteButton {
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+  }
+  
+  .deleteButton svg {
+    width: 12px;
+    height: 12px;
+  }
+}

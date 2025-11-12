@@ -1,0 +1,31 @@
+.commentList {
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.commentItem {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.commentItem:last-child {
+  margin-bottom: 0;
+}
+
+.commentItem:hover {
+  background-color: var(--bg-primary);
+  border-color: var(--text-secondary);
+}
+
+.commentText {
+  margin: 0;
+  word-wrap: break-word;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ThemeSwitcher from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
 import AboutProject from '../../features/AboutProject/ui/AboutProject';
 import Button from '../../shared/ui/Button/Button';
