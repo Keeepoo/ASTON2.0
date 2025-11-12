@@ -1,4 +1,5 @@
-import type { Post } from '../../features/PostList/model/hooks/usePosts';
+type Comment = { id: number; text: string };
+type Post = { id: number; title: string; text: string; comments: Comment[] };
 
 export function filterByLength(posts: Post[], minLength: number): Post[] {
   return posts

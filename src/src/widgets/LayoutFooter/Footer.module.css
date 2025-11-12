@@ -1,0 +1,57 @@
+.footer {
+  padding: 2rem 1.5rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.description {
+  font-size: 0.8rem;
+  margin: 0;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* Дополнительные стили для темной темы */
+[data-theme="dark"] .footer {
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .footerContent {
+    gap: 0.25rem;
+  }
+  
+  .copyright {
+    font-size: 0.85rem;
+  }
+  
+  .description {
+    font-size: 0.75rem;
+  }
+}

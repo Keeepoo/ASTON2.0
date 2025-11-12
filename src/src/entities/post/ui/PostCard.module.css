@@ -10,23 +10,8 @@
   position: relative;
 }
 
-.author {
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-color, #e0e0e0);
-}
-
 .postCard:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.titleLink {
-  text-decoration: none;
-  color: inherit;
-}
-
-.titleLink:hover .title {
-  color: var(--accent-color, #007bff);
 }
 
 .title {

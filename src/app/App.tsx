@@ -1,16 +1,18 @@
+import { BrowserRouter } from 'react-router-dom';
 import MainLayout from "../shared/layouts/MainLayout";
 import { ThemeProvider } from "../shared/lib/theme";
-import PostList from "../widgets/PostList/PostList";
-import Title from "../widgets/PostList/Title/Title";
-import { posts } from "../shared/lib/mocks/posts";
+import { AppRouter } from "./providers/router";
+import UserTabs from "../widgets/UserTabs/UserTabs";
 
 function App() {
   return (
     <ThemeProvider>
-      <MainLayout>
-        <Title></Title>
-        <PostList posts={posts} />
-      </MainLayout>
+      <BrowserRouter>
+        <MainLayout>
+          <UserTabs />
+          <AppRouter />
+        </MainLayout>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
