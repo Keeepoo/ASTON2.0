@@ -1,17 +1,17 @@
 import MainLayout from "../shared/layouts/MainLayout";
+import { ThemeProvider } from "../shared/lib/theme";
 import PostList from "../widgets/PostList/PostList";
 import Title from "../widgets/PostList/Title/Title";
-import { posts } from "../lib/mocks/posts";
-import styles from './App.module.css';
+import { posts } from "../shared/lib/mocks/posts";
 
 function App() {
   return (
-    <div className={styles.app}>
+    <ThemeProvider>
       <MainLayout>
         <Title></Title>
         <PostList posts={posts} />
       </MainLayout>
-    </div>
+    </ThemeProvider>
   );
 }
 

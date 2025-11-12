@@ -1,24 +1,57 @@
 .postCard {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   width: 100%;
-  max-width: 600px;
-  min-width: 300px;
+  position: relative;
+}
+
+.postCard:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .title {
-  margin: 0 0 12px 0;
-  font-size: 22px;
-  color: #333;
+  font-size: 1.1rem;
   font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  transition: color 0.3s ease;
 }
 
 .text {
-  margin: 0;
-  font-size: 16px;
-  color: #555;
+  color: var(--text-secondary);
   line-height: 1.5;
+  font-size: 0.95rem;
+  margin: 0;
+  word-wrap: break-word;
+  transition: color 0.3s ease;
+}
+
+.toggleCommentsButton {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.toggleCommentsButton:hover {
+  background-color: var(--bg-primary);
+  border-color: var(--text-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.postCard:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
 }
