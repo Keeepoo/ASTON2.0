@@ -5,23 +5,22 @@ import styles from './Modal.module.css';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const Modal: React.FC<ModalProps> & {
+  Header: React.FC<{ children: React.ReactNode }>;
+  Body: React.FC<{ children: React.ReactNode }>;
+  Footer: React.FC<{ children: React.ReactNode }>;
+} = ({ isOpen, onClose, children }) => {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
+      if (event.key === 'Escape') onClose();
     };
-
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
       document.body.style.overflow = 'hidden';
     }
-
     return () => {
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = 'unset';
@@ -32,25 +31,18 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 
   const modalContent = (
     <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.header}>
-          {title && <h2 className={styles.title}>{title}</h2>}
-          <button 
-            className={styles.closeButton}
-            onClick={onClose}
-            aria-label="Закрыть модальное окно"
-          >
-            ×
-          </button>
-        </div>
-        <div className={styles.content}>
-          {children}
-        </div>
+      <div className={styles.modal} onClick={e => e.stopPropagation()}>
+        {children}
       </div>
     </div>
   );
 
   return createPortal(modalContent, document.body);
 };
+
+// Подкомпоненты
+Modal.Header = ({ children }) => <div className={styles.header}>{children}</div>;
+Modal.Body = ({ children }) => <div className={styles.body}>{children}</div>;
+Modal.Footer = ({ children }) => <div className={styles.footer}>{children}</div>;
 
 export default Modal;

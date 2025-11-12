@@ -10,7 +10,7 @@ interface AboutProjectProps {
 
 const AboutProject: React.FC<AboutProjectProps> = ({ isOpen, onClose }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="О проекте">
+    <Modal isOpen={isOpen} onClose={onClose}>
       <div className={styles.content}>
         <div className={styles.section}>
           <h3>Описание проекта</h3>i

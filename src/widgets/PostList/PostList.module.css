@@ -1,9 +1,11 @@
 .postList {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 @media (max-width: 768px) {

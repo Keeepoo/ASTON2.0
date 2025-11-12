@@ -6,3 +6,7 @@
   margin-right: auto;
   color: black;
 }
+
+[data-theme='dark'] .title {
+  color: white;
+}
